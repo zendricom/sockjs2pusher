@@ -1,0 +1,8 @@
+{
+  "type":"module",
+  "dependencies": {
+    "sockjs": "^0.3.24",
+    "websocket": "^1.0.34",
+    "ws": "^8.12.0"
+  }
+}
