@@ -33,15 +33,18 @@ Example: `WEBSOCKET_URL=ws://ws.server:6001 SOCKJS_PORT=9900 node server.js`
 ### Activating and configuring the transport
 Finally, you can enable `sockjs` as transport in your pusher config and configure the http parameters.
 
-    let pusher = new Pusher('app-key', {
-        wsHost: 'my.ws.endpoint',
-        wsPort: 6001,
-        enabledTransports: ['wss', 'ws', 'sockjs'],
-        httpHost: 'my.sockjs2pusher.endpoint',
-        httpPort: 9999,
-        httpPath: '/sockjs',
-        ...
-    });
+```
+let pusher = new Pusher('app-key', {
+    wsHost: 'my.ws.endpoint',
+    wsPort: 6001,
+    enabledTransports: ['wss', 'ws', 'sockjs'],
+    httpHost: 'my.sockjs2pusher.endpoint',
+    httpPort: 9999,
+    httpPath: '/sockjs',
+    …
+});
+```
+
 `httpHost`, `httpPort` and `httpPath` will be passed to sockjs by pusher-js.
  > :information_source: &nbsp;If you are using [Laravel Echo](https://github.com/laravel/echo), you can pass the exact same options to Echo instead.
 
