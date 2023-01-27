@@ -6,8 +6,8 @@ There are multiple open-source, self-deployable Pusher Channels replacements, in
 
 Unfortunately, all of them only implement the websocket transports (wss, ws) and are missing the fallbacks which you get with the Pusher Channels service (xhr_polling, xhr_streaming, sockjs).
 
-While there are basically no browsers in use anymore, that don't support them, websocket connections are being blocked in some security environments.
-Use *sockjs2pusher* to provide affected users with real-time data.
+While there are basically no browsers in use anymore, that don't support them, websocket connections are being blocked in some security environments.  
+*sockjs2pusher* allows you to enable the sockjs fallback in your pusher-js client to provide affected users with real-time data.
 
 ## Running the server
 ### Run the provided server.js
