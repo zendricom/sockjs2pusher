@@ -46,7 +46,7 @@ let pusher = new Pusher('app-key', {
 ```
 
 `httpHost`, `httpPort` and `httpPath` will be passed to sockjs by pusher-js.
- > :information_source: &nbsp;If you are using [Laravel Echo](https://github.com/laravel/echo), you can pass the exact same options to Echo instead.
+> :information_source: &nbsp;If you are using [Laravel Echo](https://github.com/laravel/echo), you can pass the exact same options to Echo instead.
 
 
 ### Preloading the SockJS library
@@ -54,11 +54,16 @@ When pusher-js switches to the sockjs fallback, it will load the sockjs library 
 To prevent that, we can make sure, that the library is already present.
 
 * Either add a script tag to load the library from your own server or a CDN:
-`<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>`
+```
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+```
 
-* Or bundle it to your application by installing and exposing it (`npm install `)
+* Or bundle it to your application by installing and exposing it (`npm install sockjs-client`)
+```
+window.SockJS = require('sockjs-client');
+```
 
- > :warning: We've had problems with the sockjs client loaded from Pusher so we recommend preloading your own.
+> :warning: We've had problems with the sockjs client loaded from Pusher so we recommend preloading your own.
 
 ## a note on SSL
 We recommend running the server behind a reverse proxy which can do the SSL termination.
