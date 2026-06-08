@@ -1,5 +1,7 @@
 {
-  "type":"module",
+  "name": "sockjs2pusher",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
     "sockjs": "^0.3.24",
     "ws": "^8.21.0"

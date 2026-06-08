@@ -2,7 +2,7 @@
 A simple sockjs server adapter, which forwards messages to a pusher-channels-protocol websocket server.
 
 ## Why would I need this?
-There are multiple open-source, self-deployable Pusher Channels replacements, including the popular [soketi](https://github.com/soketi/soketi) and [Laravel WebSockets](https://github.com/beyondcode/laravel-websockets) projects. 
+There are multiple open-source, self-deployable Pusher Channels replacements, including [soketi](https://github.com/soketi/soketi) and [Laravel Reverb](https://github.com/laravel/reverb). 
 
 Unfortunately, all of them only implement the websocket transports (wss, ws) and are missing the fallbacks which you get with the Pusher Channels service (xhr_polling, xhr_streaming, sockjs).
 
@@ -25,9 +25,20 @@ Then, check the server.js source code and adapt it to your needs. You can provid
 
 Example: `WEBSOCKET_URL=ws://ws.server:6001 SOCKJS_PORT=9900 node server.js`
 
-### Build a Docker container
-1. Run `docker build -t sockjs2pusher .`
-2. Run `docker run --rm -e VERBOSE=1 -e WEBSOCKET_URL='ws://websocket:6001' -p 9999:80 sockjs2pusher`
+### Docker
+#### Use the published image
+A prebuilt image is available from GHCR:
+
+```
+docker run --rm -e WEBSOCKET_URL='ws://websocket:6001' -p 9999:80 \
+  ghcr.io/zendricom/sockjs2pusher:latest
+```
+
+#### Build it yourself
+```
+docker build -t sockjs2pusher .
+docker run --rm -e VERBOSE=1 -e WEBSOCKET_URL='ws://websocket:6001' -p 9999:80 sockjs2pusher
+```
 
 ## Configuring the pusher-js client
 ### Activating and configuring the transport
